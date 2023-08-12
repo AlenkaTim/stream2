@@ -29,8 +29,7 @@ public class Main {
 
         List<String> worker = persons.stream()
                 .filter(person -> person.getEducation() == Education.HIGHER)
-                .filter(person -> (person.getAge() >= 18 && person.getAge() <= 65) && person.getSex() == Sex.MAN)
-                .filter(person -> (person.getAge() >= 18 && person.getAge() <= 60) && person.getSex() == Sex.WOMAN)
+                .filter(person -> ((person.getAge() >= 18 && person.getAge() <= 65) && person.getSex() == Sex.MAN) || ((person.getAge() >= 18 && person.getAge() <= 60) && person.getSex() == Sex.WOMAN))
                 .sorted(Comparator.comparing(person -> person.getFamily()))
                 .map(person -> person.getFamily())
                 .collect(Collectors.toList());
